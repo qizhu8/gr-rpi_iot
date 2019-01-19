@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classgr_1_1rpi__iot_1_1SER" kind="class"><name>gr::rpi_iot::SER</name>
+    <member refid="classgr_1_1rpi__iot_1_1SER_1a7cb554bafbc8bbcd5a91bfcb32d492ee" kind="typedef"><name>sptr</name></member>
+    <member refid="classgr_1_1rpi__iot_1_1SER_1aa2a3e3e4797f02549b78462b41264a8f" kind="function"><name>make</name></member>
+  </compound>
+  <compound refid="namespacegr" kind="namespace"><name>gr</name>
+  </compound>
+  <compound refid="namespacegr_1_1rpi__iot" kind="namespace"><name>gr::rpi_iot</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="api_8h" kind="file"><name>api.h</name>
+    <member refid="api_8h_1a499cf15a67674aa83bafb2cf4de4e5be" kind="define"><name>RPI_IOT_API</name></member>
+  </compound>
+  <compound refid="SER_8h" kind="file"><name>SER.h</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_77431b629465cda5275637e77367d951" kind="dir"><name>rpi_iot</name>
+  </compound>
+</doxygenindex>

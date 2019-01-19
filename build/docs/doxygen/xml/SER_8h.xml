@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="SER_8h" kind="file" language="C++">
+    <compoundname>SER.h</compoundname>
+    <includes refid="api_8h" local="no">rpi_iot/api.h</includes>
+    <includes local="no">gnuradio/block.h</includes>
+    <includedby refid="SER__impl_8h" local="no">SER_impl.h</includedby>
+    <incdepgraph>
+      <node id="11">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="9">
+        <label>SER.h</label>
+        <link refid="SER_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gnuradio/block.h</label>
+      </node>
+      <node id="10">
+        <label>rpi_iot/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="14">
+        <label>SER_impl.h</label>
+        <link refid="SER__impl_8h"/>
+      </node>
+      <node id="13">
+        <label>SER.h</label>
+        <link refid="SER_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classgr_1_1rpi__iot_1_1SER" prot="public">gr::rpi_iot::SER</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1rpi__iot">gr::rpi_iot</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/uone/Gnuradio/gnuradioworkspace/OOT/gr-rpi_iot/include/rpi_iot/SER.h"/>
+  </compounddef>
+</doxygen>

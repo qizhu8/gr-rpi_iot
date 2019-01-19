@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacegr_1_1rpi__iot" kind="namespace" language="C++">
+    <compoundname>gr::rpi_iot</compoundname>
+    <innerclass refid="classgr_1_1rpi__iot_1_1SER" prot="public">gr::rpi_iot::SER</innerclass>
+    <innerclass refid="classgr_1_1rpi__iot_1_1SER__impl" prot="public">gr::rpi_iot::SER_impl</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/uone/Gnuradio/gnuradioworkspace/OOT/gr-rpi_iot/include/rpi_iot/SER.h" line="29" column="1"/>
+  </compounddef>
+</doxygen>

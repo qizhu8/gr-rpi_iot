@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_77431b629465cda5275637e77367d951" kind="dir">
+    <compoundname>rpi_iot</compoundname>
+    <innerfile refid="api_8h">api.h</innerfile>
+    <innerfile refid="SER_8h">SER.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/uone/Gnuradio/gnuradioworkspace/OOT/gr-rpi_iot/include/rpi_iot/"/>
+  </compounddef>
+</doxygen>

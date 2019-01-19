@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block>
+  <name>SER</name>
+  <key>rpi_iot_SER</key>
+  <category>[rpi_iot]</category>
+  <import>import rpi_iot</import>
+  <make>rpi_iot.SER($window_size)</make>
+
+  <param>
+   <name>window size</name>
+   <key>window_size</key>
+   <value>1000000</value>
+   <type>int</type>
+  </param>
+
+  <sink>
+   <name>in0</name>
+   <type>byte</type>
+  </sink>
+  <sink>
+   <name>in1</name>
+   <type>byte</type>
+  </sink>
+
+  <source>
+   <name>out</name>
+   <type>float</type>
+  </source>
+
+  <doc>
+   This is a block computing the Symbol Error Rate. The output is the ratio of symbol error in the most recent $window_size input samples.
+
+   Yu Wang
+  </doc>
+</block>
