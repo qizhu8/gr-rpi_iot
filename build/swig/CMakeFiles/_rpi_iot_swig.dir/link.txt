@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -O3 -DNDEBUG  -shared  -o _rpi_iot_swig.so CMakeFiles/_rpi_iot_swig.dir/rpi_iot_swigPYTHON_wrap.cxx.o -Wl,-rpath,/home/uone/Gnuradio/gnuradioworkspace/OOT/gr-rpi_iot/build/lib: -lpython2.7 ../lib/libgnuradio-rpi_iot-1.0.0git.so.0.0.0 -lboost_filesystem -lboost_system -lgnuradio-runtime -lgnuradio-pmt -llog4cpp 
