@@ -23,5 +23,8 @@
 ########################################################################
 install(FILES
     api.h
-    SER.h DESTINATION include/rpi_iot
+    SER.h
+    BER_bbf.h
+    QPSK_Decoder_cb.h
+    BPSK_Decoder_cb.h DESTINATION include/rpi_iot
 )

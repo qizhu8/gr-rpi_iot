@@ -4,8 +4,8 @@ This is the repository storing all the OOT modules designed for ECSE 4964/6964 l
 
 ## What is in this repository?
 
-### SER block
-SER block takes in two byte streams and compute the ratio of sysmbol error. This block only exams the most window\_size symbols.
+### BER block
+BER block takes in two byte streams and compute the ratio of bit error rate. This block only exams the most recent window\_size symbols.
 
 ## How to use?
 

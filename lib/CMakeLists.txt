@@ -28,6 +28,9 @@ link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND rpi_iot_sources
     SER_impl.cc
+    BER_bbf_impl.cc
+    QPSK_Decoder_cb_impl.cc
+    BPSK_Decoder_cb_impl.cc
 )
 
 set(rpi_iot_sources "${rpi_iot_sources}" PARENT_SCOPE)

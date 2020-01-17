@@ -19,5 +19,8 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    rpi_iot_SER.xml DESTINATION share/gnuradio/grc/blocks
+    rpi_iot_SER.xml
+    rpi_iot_BER_bbf.xml
+    rpi_iot_QPSK_Decoder_cb.xml
+    rpi_iot_BPSK_Decoder_cb.xml DESTINATION share/gnuradio/grc/blocks
 )
