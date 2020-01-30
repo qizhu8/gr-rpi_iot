@@ -202,110 +202,39 @@
  *    limitations under the License.
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
 
-#include <gnuradio/io_signature.h>
-#include "BER_bbf_impl.h"
+#ifndef INCLUDED_RPI_IOT_BER_BBF_H
+#define INCLUDED_RPI_IOT_BER_BBF_H
+
+#include <rpi_iot/api.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace rpi_iot {
 
-    BER_bbf::sptr
-    BER_bbf::make(long window_size, unsigned char bps)
-    {
-      return gnuradio::get_initial_sptr
-        (new BER_bbf_impl(window_size, bps));
-    }
-
-    /*
-     * The private constructor
+    /*!
+     * \brief <+description of block+>
+     * \ingroup rpi_iot
+     *
      */
-    BER_bbf_impl::BER_bbf_impl(long window_size, unsigned char bps)
-      : gr::block("BER_bbf",
-              gr::io_signature::make(2, 2, sizeof(char)),
-              gr::io_signature::make(1, 1, sizeof(float))
-            ),
-            cur_store_idx(0)
+    class RPI_IOT_API BER_bbf : virtual public gr::block
     {
-      // initialize the window
-      if (window_size > 0){
-        d_window_size = window_size;
-      }
-      else{
-        std::cout<<"window_size should be greater than 0. Reset to 100000\n";
-        d_window_size = 100000;
-      }
-      // allocate the size
-      comp_stack.assign(d_window_size, 0);
+     public:
+      typedef boost::shared_ptr<BER_bbf> sptr;
 
-      // initialize bps
-      d_bps = bps;
-    }
+      /*!
+       * \brief Return a shared_ptr to a new instance of rpi_iot::BER_bbf.
+       *
+       * To avoid accidental use of raw pointers, rpi_iot::BER_bbf's
+       * constructor is in a private implementation
+       * class. rpi_iot::BER_bbf::make is the public interface for
+       * creating new instances.
+       */
+      static sptr make(long window_size);
+    };
 
-    /*
-     * Our virtual destructor.
-     */
-    BER_bbf_impl::~BER_bbf_impl()
-    {
-    }
+  } // namespace rpi_iot
+} // namespace gr
 
-    void
-    BER_bbf_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-    {
-      /* <+forecast+> e.g. ninput_items_required[0] = noutput_items */
-      unsigned long ninputs = ninput_items_required.size ();
-      for(unsigned long i = 0; i < ninputs; i++)
-        ninput_items_required[i] = noutput_items;
-    }
-
-    int
-    BER_bbf_impl::general_work (int noutput_items,
-                       gr_vector_int &ninput_items,
-                       gr_vector_const_void_star &input_items,
-                       gr_vector_void_star &output_items)
-    {
-      const unsigned char *in0 = (const unsigned char *) input_items[0];
-      const unsigned char *in1 = (const unsigned char *) input_items[1];
-      float *out = (float *) output_items[0];
-      float BER = 0;
-      long num_of_errors = 0;
-      unsigned char cmp_rst = 0;
-
-      // get the smaller of length of two input streams
-      noutput_items = ninput_items[0]<ninput_items[1]?ninput_items[0]:ninput_items[1];
-
-      // std::cout<<int(in0[0])<<"  "<<int(in1[0])<<std::endl;
-
-      for (int idx = 0; idx < noutput_items; idx++){
-        cmp_rst = in0[idx] ^ in1[idx];
-        comp_stack[cur_store_idx] = cmp_rst - cmp_rst/ 2; 
-        cur_store_idx = (cur_store_idx + 1) % d_window_size;
-      }
-
-      // compute how many errors in the comparison stack
-      // for(long idx = 0; idx < d_window_size; idx++){
-      //   num_of_errors += comp_stack[idx];
-      // }
-      num_of_errors = accumulate(comp_stack.begin(), comp_stack.end(), 0);
-
-      // update the BER
-      BER = num_of_errors / double(d_window_size) / d_bps;
-      for (int idx = 0; idx < noutput_items; idx++){
-        out[idx] = BER;
-      }
-
-
-      // Do <+signal processing+>
-      // Tell runtime system how many input items we consumed on
-      // each input stream.
-      consume_each (noutput_items);
-
-      // Tell runtime system how many output items we produced.
-      return noutput_items;
-    }
-
-  } /* namespace rpi_iot */
-} /* namespace gr */
+#endif /* INCLUDED_RPI_IOT_BER_BBF_H */
 

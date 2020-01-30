@@ -35,7 +35,7 @@
   </source>
 
   <doc>
-   This is a block computing the Bit Error Rate. The output is the ratio of symbol error in the most recent $window_size input samples. If each input symbol carries $bps bits (e.g. BPSK: bps=1, 16QAM: bps=4), you need to manually set "bits per symbol". 
+   This is a block computing the Bit Error Rate. The output is the ratio of symbol error in the most recent $window_size input samples. If each input symbol carries $bps bits (e.g. BPSK: bps=1, 16QAM: bps=4), you need to manually set "bits per symbol".
 
    Yu Wang
   </doc>

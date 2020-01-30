@@ -230,7 +230,7 @@ namespace gr {
        * class. rpi_iot::BER_bbf::make is the public interface for
        * creating new instances.
        */
-      static sptr make(long window_size);
+      static sptr make(long window_size, unsigned char bps);
     };
 
   } // namespace rpi_iot

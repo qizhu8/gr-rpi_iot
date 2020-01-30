@@ -241,7 +241,13 @@ namespace gr {
       comp_stack.assign(d_window_size, 0);
 
       // initialize bps
-      d_bps = bps;
+      if (bps){
+        d_bps = bps
+      }
+      else{
+        std::cout<<"bps should be positive integer <= 255. Reset to 1\n";
+        d_bps = 1;
+      }
     }
 
     /*
