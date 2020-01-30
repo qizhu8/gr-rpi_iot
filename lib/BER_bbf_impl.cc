@@ -213,22 +213,23 @@ namespace gr {
   namespace rpi_iot {
 
     BER_bbf::sptr
-    BER_bbf::make(long window_size)
+    BER_bbf::make(long window_size, unsigned char bps)
     {
       return gnuradio::get_initial_sptr
-        (new BER_bbf_impl(window_size));
+        (new BER_bbf_impl(window_size, bps));
     }
 
     /*
      * The private constructor
      */
-    BER_bbf_impl::BER_bbf_impl(long window_size)
+    BER_bbf_impl::BER_bbf_impl(long window_size, unsigned char bps)
       : gr::block("BER_bbf",
               gr::io_signature::make(2, 2, sizeof(char)),
               gr::io_signature::make(1, 1, sizeof(float))
             ),
             cur_store_idx(0)
     {
+      // initialize the window
       if (window_size > 0){
         d_window_size = window_size;
       }
@@ -238,6 +239,15 @@ namespace gr {
       }
       // allocate the size
       comp_stack.assign(d_window_size, 0);
+
+      // initialize bps
+      if (bps){
+        d_bps = bps
+      }
+      else{
+        std::cout<<"bps should be positive integer <= 255. Reset to 1\n";
+        d_bps = 1;
+      }
     }
 
     /*
@@ -269,6 +279,7 @@ namespace gr {
       long num_of_errors = 0;
       unsigned char cmp_rst = 0;
 
+      // get the smaller of length of two input streams
       noutput_items = ninput_items[0]<ninput_items[1]?ninput_items[0]:ninput_items[1];
 
       // std::cout<<int(in0[0])<<"  "<<int(in1[0])<<std::endl;
@@ -286,7 +297,7 @@ namespace gr {
       num_of_errors = accumulate(comp_stack.begin(), comp_stack.end(), 0);
 
       // update the BER
-      BER = num_of_errors / double(d_window_size);
+      BER = num_of_errors / double(d_window_size) / d_bps;
       for (int idx = 0; idx < noutput_items; idx++){
         out[idx] = BER;
       }

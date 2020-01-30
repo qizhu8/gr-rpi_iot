@@ -218,10 +218,11 @@ namespace gr {
       // Nothing to declare in this block.
       long d_window_size;
       long cur_store_idx;
+      unsigned char d_bps=1;
       std::vector<int> comp_stack;
 
      public:
-      BER_bbf_impl(long window_size);
+      BER_bbf_impl(long window_size, unsigned char bps);
       ~BER_bbf_impl();
 
       // Where all the action really happens

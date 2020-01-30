@@ -4,13 +4,20 @@
   <key>rpi_iot_BER_bbf</key>
   <category>[rpi_iot]</category>
   <import>import rpi_iot</import>
-  <make>rpi_iot.BER_bbf($window_size)</make>
+  <make>rpi_iot.BER_bbf($window_size, $bit_per_symbol)</make>
 
   <param>
    <name>window size</name>
    <key>window_size</key>
    <value>1000000</value>
    <type>int</type>
+  </param>
+
+  <param>
+   <name>bits per symbol</name>
+   <key>bit_per_symbol</key>
+   <value>2</value>
+   <type>byte</type>
   </param>
 
   <sink>
