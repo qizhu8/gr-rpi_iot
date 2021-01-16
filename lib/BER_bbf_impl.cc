@@ -234,8 +234,8 @@ namespace gr {
         d_window_size = window_size;
       }
       else{
-        std::cout<<"window_size should be greater than 0. Reset to 100000\n";
-        d_window_size = 100000;
+        std::cout<<"window_size should be greater than 0. Reset to 1000000\n";
+        d_window_size = 1000000;
       }
       // allocate the size
       comp_stack.assign(d_window_size, 0);
@@ -280,7 +280,12 @@ namespace gr {
 
       for (int idx = 0; idx < noutput_items; idx++){
         cmp_rst = in0[idx] ^ in1[idx];
-        comp_stack[cur_store_idx] = cmp_rst - cmp_rst/ 2; 
+        comp_stack[cur_store_idx] = 0;
+        // since a char has 8 bits, we only need to check each-bit for one time
+        for (int bitLoc=0; bitLoc < 8; bitLoc++){ 
+          comp_stack[cur_store_idx] += cmp_rst % 2;
+          cmp_rst >>= 1;
+        } 
         cur_store_idx = (cur_store_idx + 1) % d_window_size;
       }
 
