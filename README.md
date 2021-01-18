@@ -1,8 +1,12 @@
 # gr-rpi_iot
 
-This is the repository storing all the OOT modules designed for ECSE 4964/6964 lab.
+This is the repository storing all the OOT modules designed for RPI ECSE 4964/6964 Physical Layer lab.
 
 ## What is in this repository?
+
+### BPSK and QPSK decoding block
+Two heuristic decoders implemented in OOT with C++. Use them as a ground truth block to check the correctness of your block.
+Note that, since we don't implement grey's code, this block works different from the gr-digit::constellation block.
 
 ### BER block
 BER block takes in two byte streams and compute the ratio of bit error rate. This block only exams the most recent window\_size symbols.
@@ -10,6 +14,8 @@ BER block takes in two byte streams and compute the ratio of bit error rate. Thi
 ## How to use?
 
 ``` bash
+git clone https://github.com/qizhu8/gr-rpi_iot.git
+cd gr-rpi_iot
 mkdir build
 cd build
 cmake ..
@@ -18,7 +24,12 @@ sudo make install
 sudo ldconfig
 ```
 
-Open gnuradio-companion or click the "refresh" button. If everthing is correct, you should find a block named "SER" in your block list.
+Open gnuradio-companion or click the "refresh" button on the top-right corner. If everthing is correct, you should find the following blocks in section rpi_iot
+
+* BER_bbf
+* BPSK_Decoder_cb
+* QPSK_Decoder_cb
+* SER
 
 ## Troubleshooting
 ### Why I cannot find the block?
